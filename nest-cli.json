@@ -1,0 +1,78 @@
+
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/api-gateway/src",
+  "monorepo": true,
+  "root": "apps",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "tsconfig.build.json"
+  },
+  "projects": {
+    "api-gateway": {
+      "type": "application",
+      "root": "apps/api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
+      }
+    },
+    "contracts": {
+      "type": "library",
+      "root": "libs/contracts",
+      "entryFile": "index",
+      "sourceRoot": "libs/contracts/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/contracts/tsconfig.lib.json"
+      }
+    },
+    "prisma": {
+      "type": "library",
+      "root": "libs/prisma",
+      "entryFile": "index",
+      "sourceRoot": "libs/prisma/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/prisma/tsconfig.lib.json"
+      }
+    },
+    "accounts": {
+      "type": "application",
+      "root": "apps/accounts",
+      "entryFile": "main",
+      "sourceRoot": "apps/accounts/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/accounts/tsconfig.app.json"
+      }
+    },
+    "child": {
+      "type": "application",
+      "root": "apps/child",
+      "entryFile": "main",
+      "sourceRoot": "apps/child/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/child/tsconfig.app.json"
+      }
+    },
+    "parent": {
+      "type": "application",
+      "root": "apps/parent",
+      "entryFile": "main",
+      "sourceRoot": "apps/parent/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/parent/tsconfig.app.json"
+      }
+    },
+    "clinics": {
+      "type": "application",
+      "root": "apps/clinics",
+      "entryFile": "main",
+      "sourceRoot": "apps/clinics/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/clinics/tsconfig.app.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Child {
+  id           String   @id @default(uuid()) @db.Uuid
+  accountId    String?
+  parentId     String?
+  name         String
+  birthDate    DateTime
+  diet         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
