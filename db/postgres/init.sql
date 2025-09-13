@@ -25,6 +25,15 @@ CREATE TABLE "Child" (
     CONSTRAINT "Child_pkey" PRIMARY KEY ("id")
 );
 
+CREATE TABLE "Parents" (
+    "id" UUID NOT NULL,
+    "accountId" TEXT
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "Parents_pkey" PRIMARY KEY ("id")
+);
+
 CREATE TABLE "Clinics" (
     "id" UUID NOT NULL,
     "accountId" TEXT,
@@ -40,5 +49,7 @@ CREATE TABLE "Clinics" (
 CREATE UNIQUE INDEX "Accounts_email_key" ON "Accounts"("email");
 
 CREATE UNIQUE INDEX "Child_id_key" ON "Child"("id");
+
+CREATE UNIQUE INDEX "Parents_id_key" ON "Parents"("id");
 
 CREATE UNIQUE INDEX "Clinics_id_key" ON "Clinics"("id");
