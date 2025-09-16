@@ -3,17 +3,17 @@ FROM node:20.11.1-alpine
 WORKDIR /app
 
 COPY package.json ./
-COPY apps/parents/package.json ./apps/parents/
+COPY apps/accounts/package.json ./apps/accounts/
 RUN npm install
 
 COPY *.json ./
 COPY *.env ./
 COPY libs ./libs
-COPY apps/parents ./apps/parents
-COPY apps/parents/prisma ./prisma
+COPY apps/accounts ./apps/accounts
+COPY apps/accounts/prisma ./prisma
 
 EXPOSE 3001
 
 RUN npx prisma generate
 
-CMD ["npm", "run", "start", "parents"]
+CMD ["npm", "run", "start", "accounts"]

@@ -9,7 +9,7 @@
     "target": "ES2023",
     "sourceMap": true,
     "outDir": "./dist",
-    "rootDir": "./", 
+    "rootDir": "./",
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
@@ -19,10 +19,22 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@apps/*": ["apps/*/src"],
-      "@libs/*": ["libs/*"]
+      "@apps/*": [
+        "apps/*/src"
+      ],
+      "@libs/*": [
+        "libs/*"
+      ]
     }
   },
-  "include": ["apps/**/*", "libs/**/*"],
-  "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
+  "include": [
+    "apps/**/*",
+    "libs/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test",
+    "**/*spec.ts"
+  ]
 }

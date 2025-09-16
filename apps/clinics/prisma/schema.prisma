@@ -17,3 +17,19 @@ model Clinics {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 }
+
+model ParentClinic {
+  id          String
+  parentId    String
+  
+  @@id ([id, parentId])
+  @@unique([id, parentId])
+}
+
+model ChildClinic {
+  id          String
+  childId     String
+  
+  @@id ([id, childId])
+  @@unique([id, childId])
+}

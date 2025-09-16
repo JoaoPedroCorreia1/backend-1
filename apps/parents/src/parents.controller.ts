@@ -9,6 +9,11 @@ import { UpdateParentDto } from 'libs/contracts/parent/update-parent.dto';
 export class ParentsController {
   constructor(private readonly parentsService: ParentsService) {}
 
+  @MessagePattern(PARENT_PATTERNS.GET_ALL_PARENTS_BY_CLINIC_ID)
+  async getAllParentsByClinicId(id: string) {
+    return await this.parentsService.findAllByClinicId(id);
+  }
+
   @MessagePattern(PARENT_PATTERNS.GET_PARENT_BY_ID)
   async getParentById(id: string) {
     return await this.parentsService.findById(id);
@@ -16,7 +21,7 @@ export class ParentsController {
 
   @MessagePattern(PARENT_PATTERNS.GET_PARENT_BY_ACCOUNT_ID)
   async getParentByAccountId(id: string) {
-    return await this.parentsService.findById(id);
+    return await this.parentsService.findByAccountId(id);
   }
 
   @MessagePattern(PARENT_PATTERNS.CREATE_PARENT)

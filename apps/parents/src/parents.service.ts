@@ -7,6 +7,27 @@ import { UpdateParentDto } from 'libs/contracts/parent/update-parent.dto';
 export class ParentsService {
   constructor(private prisma: PrismaService) {}
 
+  async findAllByClinicId(id: string) {
+    const data = await this.prisma.parentClinic.findMany({
+      where: {
+        id
+      },
+      select: {
+        parentId: true
+      }
+    });
+
+    const parentIds = data.map(parent => parent.parentId);
+
+    return await this.prisma.parents.findMany({
+      where: {
+        id: {
+          in: parentIds
+        }
+      }
+    });
+  }
+
   async findById(id: string) {
     return await this.prisma.parents.findUnique({ where: { id } });
   }

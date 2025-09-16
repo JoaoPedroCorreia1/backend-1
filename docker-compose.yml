@@ -144,6 +144,91 @@ services:
     networks:
       - backend
 
+  medications:
+    container_name: medications
+    build:
+      context: .
+      dockerfile: ./apps/specialists/Dockerfile
+    ports:
+      - "3005:3005"
+    env_file:
+      - .env
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - backend
+
+  specialists:
+    container_name: specialists
+    build:
+      context: .
+      dockerfile: ./apps/specialists/Dockerfile
+    ports:
+      - "3006:3006"
+    env_file:
+      - .env
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - backend
+
+  reports:
+    container_name: reports
+    build:
+      context: .
+      dockerfile: ./apps/reports/Dockerfile
+    ports:
+      - "3007:3007"
+    env_file:
+      - .env
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - backend
+
+  payments:
+    container_name: payments
+    build:
+      context: .
+      dockerfile: ./apps/payments/Dockerfile
+    ports:
+      - "3008:3008"
+    env_file:
+      - .env
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - backend
+
+  subscription-plans:
+    container_name: subscription-plans
+    build:
+      context: .
+      dockerfile: ./apps/subscription-plans/Dockerfile
+    ports:
+      - "3009:3009"
+    env_file:
+      - .env
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    networks:
+      - backend
+
 volumes:
   postgres:
 

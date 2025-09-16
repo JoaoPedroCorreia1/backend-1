@@ -19,6 +19,7 @@ import { ClinicsService } from '../clinics/clinics.service';
 import { CreateAccountDto } from 'libs/contracts/account/create-account.dto';
 import { UpdateAccountDto } from 'libs/contracts/account/update-account.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { SpecialistsService } from '../specialists/specialists.service';
 
 @Controller("accounts")
 export class AccountsController {
@@ -26,7 +27,8 @@ export class AccountsController {
     private readonly accountsService: AccountsService,
     private readonly childService: ChildService,
     private readonly parentsService: ParentsService,
-    private readonly clinicsService: ClinicsService
+    private readonly clinicsService: ClinicsService,
+    private readonly specialistService: SpecialistsService
   ) {}
 
   @Get(":id")
@@ -51,6 +53,12 @@ export class AccountsController {
   @UseGuards(JwtAuthGuard)
   async getClinicByAccountId(@Param("id") id: string) {
     return this.clinicsService.findByAccountId(id);
+  }
+
+  @Get(":id/specialist")
+  @UseGuards(JwtAuthGuard)
+  async getSpecialistByAccountId(@Param("id") id: string) {
+    return this.specialistService.findByAccountId(id);
   }
 
   @Post()

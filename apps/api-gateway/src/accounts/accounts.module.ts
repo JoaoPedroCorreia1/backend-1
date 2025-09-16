@@ -4,6 +4,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ChildModule } from '../child/child.module';
 import { ParentsModule } from '../parents/parents.module';
 import { ClinicsModule } from '../clinics/clinics.module';
+import { SpecialistsModule } from '../specialists/specialists.module';
 import { AccountsService } from './accounts.service';
 
 @Module({
@@ -11,6 +12,7 @@ import { AccountsService } from './accounts.service';
     ChildModule,
     ParentsModule,
     ClinicsModule,
+    SpecialistsModule,
     ClientsModule.register([
       {
         name: "ACCOUNTS",

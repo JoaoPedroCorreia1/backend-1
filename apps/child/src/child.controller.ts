@@ -9,9 +9,14 @@ import { UpdateChildDto } from 'libs/contracts/child/update-child.dto';
 export class ChildController {
   constructor(private readonly childService: ChildService) {}
 
-  @MessagePattern(CHILD_PATTERNS.CREATE_CHILD)
-  async createChild(createChildDto: CreateChildDto) {
-    return this.childService.createChild(createChildDto);
+  @MessagePattern(CHILD_PATTERNS.GET_ALL_CHILDREN_BY_CLINIC_ID)
+  async getAllChildrenByClinicId(id: string) {
+    return this.childService.findAllByClinicId(id);
+  }
+
+  @MessagePattern(CHILD_PATTERNS.GET_ALL_CHILDREN_BY_PARENT_ID)
+  async getAllChildrenByParentId(id: string) {
+    return this.childService.findAllByParentId(id);
   }
 
   @MessagePattern(CHILD_PATTERNS.GET_CHILD_BY_ID)
@@ -22,6 +27,11 @@ export class ChildController {
   @MessagePattern(CHILD_PATTERNS.GET_CHILD_BY_ACCOUNT_ID)
   async findChildByUserId(id: string) {
     return this.childService.findByAccountId(id);
+  }
+
+  @MessagePattern(CHILD_PATTERNS.CREATE_CHILD)
+  async createChild(createChildDto: CreateChildDto) {
+    return this.childService.createChild(createChildDto);
   }
 
   @MessagePattern(CHILD_PATTERNS.UPDATE_CHILD_BY_ID)

@@ -19,6 +19,11 @@ export class ParentsService {
     await this.parentsClient.connect();
   }
 
+  async findAllByClinicId(id: string) {
+    return await firstValueFrom(this.parentsClient
+      .send(PARENT_PATTERNS.GET_ALL_PARENTS_BY_CLINIC_ID, id));
+  }
+
   async findById(id: string) {
     const parent = await firstValueFrom(
       this.parentsClient.send(PARENT_PATTERNS.GET_PARENT_BY_ID, id));

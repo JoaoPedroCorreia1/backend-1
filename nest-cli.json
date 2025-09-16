@@ -1,4 +1,3 @@
-
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
@@ -11,33 +10,6 @@
     "tsConfigPath": "tsconfig.build.json"
   },
   "projects": {
-    "api-gateway": {
-      "type": "application",
-      "root": "apps/api-gateway",
-      "entryFile": "main",
-      "sourceRoot": "apps/api-gateway/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
-      }
-    },
-    "contracts": {
-      "type": "library",
-      "root": "libs/contracts",
-      "entryFile": "index",
-      "sourceRoot": "libs/contracts/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/contracts/tsconfig.lib.json"
-      }
-    },
-    "prisma": {
-      "type": "library",
-      "root": "libs/prisma",
-      "entryFile": "index",
-      "sourceRoot": "libs/prisma/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/prisma/tsconfig.lib.json"
-      }
-    },
     "accounts": {
       "type": "application",
       "root": "apps/accounts",
@@ -45,6 +17,15 @@
       "sourceRoot": "apps/accounts/src",
       "compilerOptions": {
         "tsConfigPath": "apps/accounts/tsconfig.app.json"
+      }
+    },
+    "api-gateway": {
+      "type": "application",
+      "root": "apps/api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
       }
     },
     "child": {
@@ -56,15 +37,6 @@
         "tsConfigPath": "apps/child/tsconfig.app.json"
       }
     },
-    "parent": {
-      "type": "application",
-      "root": "apps/parent",
-      "entryFile": "main",
-      "sourceRoot": "apps/parent/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/parent/tsconfig.app.json"
-      }
-    },
     "clinics": {
       "type": "application",
       "root": "apps/clinics",
@@ -72,6 +44,78 @@
       "sourceRoot": "apps/clinics/src",
       "compilerOptions": {
         "tsConfigPath": "apps/clinics/tsconfig.app.json"
+      }
+    },
+    "contracts": {
+      "type": "library",
+      "root": "libs/contracts",
+      "entryFile": "index",
+      "sourceRoot": "libs/contracts/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/contracts/tsconfig.lib.json"
+      }
+    },
+    "medications": {
+      "type": "application",
+      "root": "apps/medications",
+      "entryFile": "main",
+      "sourceRoot": "apps/medications/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/medications/tsconfig.app.json"
+      }
+    },
+    "parents": {
+      "type": "application",
+      "root": "apps/parents",
+      "entryFile": "main",
+      "sourceRoot": "apps/parents/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/parents/tsconfig.app.json"
+      }
+    },
+    "payments": {
+      "type": "application",
+      "root": "apps/payments",
+      "entryFile": "main",
+      "sourceRoot": "apps/payments/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/payments/tsconfig.app.json"
+      }
+    },
+    "prisma": {
+      "type": "library",
+      "root": "libs/prisma",
+      "entryFile": "index",
+      "sourceRoot": "libs/prisma/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/prisma/tsconfig.lib.json"
+      }
+    },
+    "reports": {
+      "type": "application",
+      "root": "apps/reports",
+      "entryFile": "main",
+      "sourceRoot": "apps/reports/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/reports/tsconfig.app.json"
+      }
+    },
+    "specialists": {
+      "type": "application",
+      "root": "apps/specialists",
+      "entryFile": "main",
+      "sourceRoot": "apps/specialists/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/specialists/tsconfig.app.json"
+      }
+    },
+    "subscription-plans": {
+      "type": "application",
+      "root": "apps/subscription-plans",
+      "entryFile": "main",
+      "sourceRoot": "apps/subscription-plans/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/subscription-plans/tsconfig.app.json"
       }
     }
   }
