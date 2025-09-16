@@ -11,10 +11,6 @@ export class SubscriptionPlansService {
     return await this.prisma.subscriptionPlans.findUnique({ where: { id } });
   }
 
-  async findByAccountId(id: string) {
-    return await this.prisma.subscriptionPlans.findUnique({ where: { accountId: id } });
-  }
-
   async createSubscriptionPlan(createSubscriptionPlanDto: CreateSubscriptionPlanDto) {
     return await this.prisma.subscriptionPlans.create({ data: createSubscriptionPlanDto });
   }

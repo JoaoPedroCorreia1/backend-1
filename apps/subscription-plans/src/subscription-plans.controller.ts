@@ -14,11 +14,6 @@ export class SubscriptionPlansController {
     return await this.subscriptionPlansService.findById(id);
   }
 
-  @MessagePattern(SUBSCRIPTION_PLAN_PATTERNS.GET_SUBSCRIPTION_PLAN_BY_ACCOUNT_ID)
-  async getSubscriptionPlansByAccountId(id: string) {
-    return await this.subscriptionPlansService.findByAccountId(id);
-  }
-
   @MessagePattern(SUBSCRIPTION_PLAN_PATTERNS.CREATE_SUBSCRIPTION_PLAN)
   async createSubscriptionPlan(createSubscriptionPlanDto: CreateSubscriptionPlanDto) {
     return await this.subscriptionPlansService.createSubscriptionPlan(createSubscriptionPlanDto);

@@ -1,5 +1,5 @@
 export class CreateSubscriptionPlanDto {
-  accountId: string;
+  id: string;
   type: string;
   status: string;
   expireDate?: Date;

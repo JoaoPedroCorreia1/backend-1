@@ -9,8 +9,7 @@ datasource db {
 }
 
 model subscriptionPlans {
-  id           String   @id @default(uuid()) @db.Uuid
-  accountId    String   @unique
+  id           String   @id @unique
   type         String
   status       String
   expireDate   DateTime?

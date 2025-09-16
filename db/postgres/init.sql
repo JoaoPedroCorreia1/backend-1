@@ -98,10 +98,9 @@ CREATE TABLE "Reports" (
 );
 
 CREATE TABLE "SubscriptionPlans" (
-    "id" UUID NOT NULL,
-    "accountId" TEXT,
-    "type" TEXT,
-    "status" TEXT,
+    "id" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
+    "status" TEXT NOT NULL,
     "expireDate" TIMESTAMP(3),
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
