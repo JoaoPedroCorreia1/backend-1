@@ -24,6 +24,11 @@ export class ChildService {
       .send(CHILD_PATTERNS.GET_ALL_CHILDREN_BY_CLINIC_ID, id));
   }
 
+  async findAllByParentId(id: string) {
+    return await firstValueFrom(this.childClient
+      .send(CHILD_PATTERNS.GET_ALL_CHILDREN_BY_PARENT_ID, id));
+  }
+
   async findById(id: string) {
     const child = await firstValueFrom(
       this.childClient.send(CHILD_PATTERNS.GET_CHILD_BY_ID, id));

@@ -70,7 +70,7 @@ CREATE TABLE "Medications" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Parents_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Medications_pkey" PRIMARY KEY ("id")
 );
 
 CREATE TABLE "Specialists" (
@@ -81,7 +81,7 @@ CREATE TABLE "Specialists" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Parents_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Specialists_pkey" PRIMARY KEY ("id")
 );
 
 CREATE TABLE "Reports" (
@@ -105,7 +105,7 @@ CREATE TABLE "SubscriptionPlans" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Reports_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "SubscriptionPlans_pkey" PRIMARY KEY ("id")
 );
 
 CREATE UNIQUE INDEX "Accounts_email_key" ON "Accounts"("email");

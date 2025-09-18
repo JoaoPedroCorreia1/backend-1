@@ -2,11 +2,9 @@ import { Module } from '@nestjs/common';
 import { ChildController } from './child.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ChildService } from './child.service';
-import { MedicationsModule } from '../medications/medications.module';
 
 @Module({
   imports: [
-    MedicationsModule,
     ClientsModule.register([
       {
         name: "CHILD",

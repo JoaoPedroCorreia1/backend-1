@@ -30,17 +30,6 @@ export class SubscriptionPlansService {
     return subscriptionPlan;
   }
 
-  async findByAccountId(id: string) {
-    const subscriptionPlan = await firstValueFrom(
-      this.subscriptionPlansClient.send(SUBSCRIPTION_PLAN_PATTERNS.GET_SUBSCRIPTION_PLAN_BY_ACCOUNT_ID, id));
-
-    if (subscriptionPlan == null) {
-      throw new NotFoundException("Subscription plan not found");
-    }
-
-    return subscriptionPlan;
-  }
-
   async createSubscriptionPlan(createSubscriptionPlanDto: CreateSubscriptionPlanDto) {
     return await firstValueFrom(this.subscriptionPlansClient
       .send(SUBSCRIPTION_PLAN_PATTERNS.CREATE_SUBSCRIPTION_PLAN, createSubscriptionPlanDto));

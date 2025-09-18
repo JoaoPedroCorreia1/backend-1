@@ -22,13 +22,16 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 @Controller("child")
 export class ChildController {
   constructor(
-    private readonly ChildService: ChildService,
-    private readonly MedicationsService: MedicationsService
+    private readonly ChildService: ChildService
   ) {}
 
   @Get()
   @UseGuards(JwtAuthGuard)
   async getAllChildren(@Query() query: GetAllChildrenDto) {
+    if (query.parentId != undefined) {
+      return this.ChildService.findAllByParentId(query.parentId);
+    }
+
     if (query.clinicId != undefined) {
       return this.ChildService.findAllByClinicId(query.clinicId);
     }
@@ -40,12 +43,6 @@ export class ChildController {
   @UseGuards(JwtAuthGuard)
   async getChildById(@Param("id") id: string) {
     return this.ChildService.findById(id);
-  }
-
-  @Get(":id/medications")
-  @UseGuards(JwtAuthGuard)
-  async getMedicationsByChildId(@Param("id") id: string) {
-    return this.MedicationsService.findByChildId(id);
   }
 
   @Post()

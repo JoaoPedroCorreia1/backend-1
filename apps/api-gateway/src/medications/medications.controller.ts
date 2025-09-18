@@ -8,18 +8,31 @@ import {
   Body,
   UseGuards,
   HttpCode,
-  HttpStatus
+  HttpStatus,
+  Query,
+  BadRequestException
 } from '@nestjs/common';
 import { MedicationsService } from './medications.service';
 import { AddMedicationDto } from 'libs/contracts/medication/add-medication.dto';
 import { UpdateMedicationDto } from 'libs/contracts/medication/update-medication.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { GetAllMedicationsDto } from './dto/get-all-medications.dto';
 
 @Controller("medications")
 export class MedicationsController {
   constructor(
     private readonly medicationsService: MedicationsService,
   ) {}
+
+  @Get()
+  @UseGuards(JwtAuthGuard)
+  async getAllMedications(@Query() query: GetAllMedicationsDto) {
+    if (query.childId != undefined) {
+      return this.medicationsService.findByChildId(query.childId);
+    }
+
+    throw new BadRequestException("Invalid query");
+  }
 
   @Get(":id")
   @UseGuards(JwtAuthGuard)
